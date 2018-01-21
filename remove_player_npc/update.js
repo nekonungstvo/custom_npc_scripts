@@ -10,7 +10,7 @@ function remove_player_update(event, world, npc) {
     ticks++;
     world.setTempData(ticks_key, ticks);
     
-    if (ticks < 30) return;
+    if (ticks < 4) return;
     
     var players = world.getAllServerPlayers();
     for (var i=0; i<players.length; i++) {
