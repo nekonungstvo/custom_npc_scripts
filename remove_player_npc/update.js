@@ -1,15 +1,19 @@
-TICKS = 0;
-
 function remove_player_update(event, world, npc) {
-    TICKS++;
+    var npc_name = npc.getName();
     
-    if (TICKS < 30) return;
-    TICKS = 0;
-
+    var ticks = 0
+    var ticks_key = "ticks_" + npc_name;
+    if (world.hasTempData(ticks_key)) {
+        ticks = world.getTempData(ticks_key);
+    }
+    
+    ticks++;
+    world.setTempData(ticks_key, ticks);
+    
+    if (ticks < 30) return;
+    
     var players = world.getAllServerPlayers();
     for (var i=0; i<players.length; i++) {
-        if (npc.getName() == players[i].getName()) {
-            npc.despawn();
-        }
+        if (npc_name == players[i].getName()) npc.despawn();
     }
 }
