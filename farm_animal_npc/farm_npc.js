@@ -1,5 +1,5 @@
 function farm_interact(npc, player) {
-  var m = 192;
+  var hours = 192;
 
   var now = new Date();
   var last = new Date();
@@ -8,7 +8,7 @@ function farm_interact(npc, player) {
     last = new Date(npc.getStoredData("farm"));
   }
 
-  var left = m - ((now-last) / 3600000).toFixed(2);
+  var left = hours - ((now-last) / 3600000).toFixed(2);
   if (left > 0) {
     npc.say(player, "Последний сбор: " + last);
     npc.say(player, "Следующий сбор через " + left + " часов")
