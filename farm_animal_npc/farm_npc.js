@@ -2,7 +2,7 @@ function farm_iteract(npc, player) {
   var m = 192;
 
   var now = new Date();
-  var last = null;
+  var last = new Date();
 
   if (npc.hasStoredData("farm")) {
     last = new Date(npc.getStoredData("farm"));
