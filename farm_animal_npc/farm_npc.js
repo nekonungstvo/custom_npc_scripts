@@ -1,4 +1,4 @@
-function farm_iteract(npc, player) {
+function farm_interact(npc, player) {
   var m = 192;
 
   var now = new Date();
