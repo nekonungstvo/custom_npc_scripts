@@ -18,6 +18,6 @@ function farm_interact(npc, player) {
   }
 
   var item = npc.getProjectileItem();
-  player.giveItem(item, item.getStackSize());
+  npc.giveItem(player, item);
   npc.setStoredData("farm", now.toString())
 }
