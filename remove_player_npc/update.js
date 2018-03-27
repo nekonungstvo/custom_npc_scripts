@@ -1,3 +1,8 @@
+function on_remove(npc, player) {
+    player.setPosition(npc.getX(), npc.getY(), npc.getZ());
+    npc.despawn();
+}
+
 function remove_player_update(event, world, npc) {
     var npc_name = npc.getName();
     
@@ -14,6 +19,6 @@ function remove_player_update(event, world, npc) {
     
     var players = world.getAllServerPlayers();
     for (var i=0; i<players.length; i++) {
-        if (npc_name == players[i].getName()) npc.despawn();
+        if (npc_name == players[i].getName()) on_remove(npc, players[i]);
     }
 }
